@@ -36,7 +36,7 @@ public interface DriverConfig extends Config {
     @DefaultValue("https://${login}:${pwd}@${selenoidUrl}")
     String remoteUrl();
 
-    @DefaultValue("")
+    @DefaultValue("1")
     String videoStorage();
 
     @DefaultValue("${remoteUrl}/wd/hub")
