@@ -1,4 +1,4 @@
-package ru.simbirsoft.autotests.config;
+package qa.circus.config;
 
 import org.aeonbits.owner.Config;
 
@@ -8,6 +8,5 @@ import org.aeonbits.owner.Config;
         "classpath:app.properties",
 })
 public interface AppConfig extends Config {
-
     String baseUrl();
 }

@@ -1,12 +1,12 @@
-package ru.simbirsoft.autotests.tests;
+package qa.circus.tests;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import ru.simbirsoft.autotests.helpers.AllureUtils;
-import ru.simbirsoft.autotests.helpers.DriverConfiguration;
+import qa.circus.helpers.AllureUtils;
+import qa.circus.helpers.DriverConfiguration;
 
 
 public class WebTest {
@@ -22,6 +22,7 @@ public class WebTest {
         AllureUtils.attachScreenshotAs("Last step screenshot");
         AllureUtils.attachPageSource();
         AllureUtils.attachBrowserConsoleLogs();
+        AllureUtils.attachRemoteVideo();
         Selenide.closeWebDriver();
 
     }

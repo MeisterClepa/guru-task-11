@@ -1,11 +1,15 @@
-package ru.simbirsoft.autotests.helpers;
+package qa.circus.helpers;
 
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import qa.circus.config.Driver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -24,5 +28,19 @@ public class DriverUtils {
 
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
+    }
+
+    public static URL getVideoUrl(String sessionId) {
+        String videoUrl = Driver.config.remoteVideoUrl() + sessionId + ".mp4";
+        try {
+            return new URL(videoUrl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String getSessionId(){
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 }

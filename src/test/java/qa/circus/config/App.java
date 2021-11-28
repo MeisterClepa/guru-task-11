@@ -1,4 +1,4 @@
-package ru.simbirsoft.autotests.config;
+package qa.circus.config;
 
 import org.aeonbits.owner.ConfigFactory;
 
